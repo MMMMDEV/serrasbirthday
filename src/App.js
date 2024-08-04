@@ -639,7 +639,7 @@ function App() {
             ></img>
             <div className="white-background"></div>
           </a>
-          <a
+          <button
             className="social"
             onClick={(e) => {
               e.preventDefault();
@@ -648,8 +648,8 @@ function App() {
           >
             <img src={emailIcon} className="social-icon" alt="email icon"></img>
             <div className="white-background"></div>
-          </a>
-          <a
+          </button>
+          <button
             className="social"
             onClick={(e) => {
               e.preventDefault();
@@ -658,7 +658,7 @@ function App() {
           >
             <img src={phoneIcon} className="social-icon" alt="phone icon"></img>
             <div className="white-background"></div>
-          </a>
+          </button>
         </div>
         <p>Copyright Serra&#8217;s Birthdays 2024</p>
       </footer>

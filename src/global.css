@@ -374,6 +374,19 @@ body {
   gap: 0.6rem;
 }
 
+.socials > button {
+  width: 3rem;
+  height: 3rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  border: 0px solid transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
 .socials > a {
   width: 3rem;
   height: 3rem;
