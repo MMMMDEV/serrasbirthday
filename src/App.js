@@ -594,11 +594,23 @@ function App() {
         <form className="contact-form" ref={formRef} onSubmit={sendEmail}>
           <div className="input-container">
             <label htmlFor="name">Name</label>
-            <input type="text" id="name" placeholder="name" required></input>
+            <input
+              type="text"
+              id="name"
+              placeholder="name"
+              name="name"
+              required
+            ></input>
           </div>
           <div className="input-container">
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" placeholder="email" required></input>
+            <input
+              type="email"
+              id="email"
+              placeholder="email"
+              name="email"
+              required
+            ></input>
           </div>
           <div className="input-container">
             <label htmlFor="inquiry">Product Inquiry</label>
@@ -607,6 +619,7 @@ function App() {
               type="text"
               id="inquiry"
               placeholder="inquiry"
+              name="inquiry"
               required
             ></textarea>
           </div>
