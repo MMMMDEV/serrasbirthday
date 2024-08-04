@@ -640,7 +640,6 @@ function App() {
             <div className="white-background"></div>
           </a>
           <a
-            href="#"
             className="social"
             onClick={(e) => {
               e.preventDefault();
@@ -651,7 +650,6 @@ function App() {
             <div className="white-background"></div>
           </a>
           <a
-            href="#"
             className="social"
             onClick={(e) => {
               e.preventDefault();
