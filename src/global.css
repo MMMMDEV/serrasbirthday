@@ -82,7 +82,7 @@ body {
 /* Hero */
 
 .Hero {
-  height: 101vh;
+  height: calc(100vh - 3.5rem);
   padding: 0rem 2rem;
   display: flex;
   justify-content: center;
@@ -528,6 +528,25 @@ body {
   /* contact */
   .contact-form {
     width: 25rem;
+  }
+}
+
+@media screen and (width > 700px) and (height < 500px) {
+  .hero-vector {
+    width: 20rem;
+    height: 20rem;
+    position: absolute;
+  }
+
+  .Hero {
+    height: 102vh;
+    padding: 0rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
   }
 }
 
