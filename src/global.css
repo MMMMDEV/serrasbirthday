@@ -531,7 +531,7 @@ body {
   }
 }
 
-@media screen and (width > 700px) and (height < 500px) {
+@media screen and (width > 400px) and (height < 500px) {
   .hero-vector {
     width: 20rem;
     height: 20rem;
