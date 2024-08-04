@@ -82,7 +82,7 @@ body {
 /* Hero */
 
 .Hero {
-  height: calc(70vh - 3.5rem);
+  height: 101vh;
   padding: 0rem 2rem;
   display: flex;
   justify-content: center;
@@ -119,7 +119,7 @@ body {
 }
 
 .products-title {
-  font-family: "Ibarra Real Nova", serif;
+  font-family: "Inter", serif;
   font-size: 1.5rem;
   font-weight: 500;
 }
@@ -167,6 +167,11 @@ body {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  transition: 0.5s;
+}
+
+.card:hover {
+  scale: 1.1;
 }
 
 .card-container {
@@ -225,16 +230,21 @@ body {
 
 .btn-change-img {
   width: 2rem;
-  height: 2rem;
+  height: 15%;
   background-color: rgba(0, 0, 0, 0);
   border: 0 solid transparent;
-  border-radius: 50rem;
+  border-radius: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
   cursor: pointer;
   z-index: 2;
+  transition: 0.5s;
+}
+
+.btn-change-img:hover {
+  background-color: #ffcbd2;
 }
 
 .arrow-icon {
@@ -396,7 +406,7 @@ body {
   margin: 0;
 }
 
-@media screen and (width > 760px) {
+@media screen and (width > 700px) {
   .header {
     height: 4rem;
     padding: 0rem 2rem;
@@ -518,4 +528,41 @@ body {
     flex-direction: row;
     align-items: flex-start;
   }
+
+  .about-us-paragraph {
+    width: 60ch;
+  }
+
+  .products-container {
+    gap: 4rem;
+  }
+}
+
+/* animation stuff */
+.header,
+.Hero {
+  opacity: 0;
+  transition: opacity 1s ease-in-out; /* Adjust duration and timing function as needed */
+}
+
+.header.visible,
+.Hero.visible {
+  opacity: 1;
+}
+
+/* Existing styles here */
+.product-section-heading {
+  /* Keep your existing styles */
+}
+
+/* New styles for sliding and fading in */
+.slide-in-left {
+  opacity: 0; /* Start hidden */
+  transform: translateX(-100px); /* Slide from the left */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition */
+}
+
+.slide-in-left.visible {
+  opacity: 1; /* End visible */
+  transform: translateX(0); /* End at the original position */
 }

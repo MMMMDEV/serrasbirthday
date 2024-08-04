@@ -35,10 +35,10 @@ function App() {
 
     emailjs
       .sendForm(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
+        "service_2rnus3a",
+        "template_rz2gy7q",
         formRef.current,
-        "YOUR_USER_ID"
+        "8vDJIvwDwrs11aGxx"
       )
       .then(
         (result) => {
@@ -210,6 +210,12 @@ function App() {
     }
   };
 
+  const [headerVisible, setHeaderVisible] = useState(false);
+  const [heroVisible, setHeroVisible] = useState(false);
+  const [floralsVisible, setFloralsVisible] = useState(false);
+  const [bouncyVisible, setBouncyVisible] = useState(false);
+  const [pinaVisible, setPinaVisible] = useState(false);
+
   useEffect(() => {}, [
     imgValue1,
     imgValue2,
@@ -219,12 +225,34 @@ function App() {
     imgValue6,
     imgValue7,
   ]);
+
+  useEffect(() => {
+    const timer1 = setTimeout(() => setHeaderVisible(true), 100); // Adjust delay as needed
+    const timer2 = setTimeout(() => setHeroVisible(true), 300); // Adjust delay as needed
+
+    // Cleanup timers if component unmounts
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+    };
+  }, []);
+
+  useEffect(() => {
+    // Timing to make the Florals section visible after the component mounts
+    const timer = setTimeout(() => setFloralsVisible(true), 300); // Adjust timing as needed
+    const timer2 = setTimeout(() => setBouncyVisible(true), 1200); // Adjust timing as needed
+    const timer3 = setTimeout(() => setPinaVisible(true), 2400); // Adjust timing as needed
+
+    // Cleanup timer if the component unmounts
+    return () => clearTimeout(timer, timer2, timer3);
+  }, []);
+
   return (
     <div className="Page">
-      <div className="header">
+      <div className={`header ${headerVisible ? "visible" : ""}`}>
         <h1 className="header-title">Serra's Birthdays</h1>
       </div>
-      <div className="Hero">
+      <div className={`Hero ${heroVisible ? "visible" : ""}`}>
         <img src={vector} className="hero-vector" alt="vector"></img>
         <h2 className="hero-title">We bring your vision to life</h2>
         <button className="contact-btn" onClick={scrollToContact}>
@@ -233,8 +261,18 @@ function App() {
       </div>
       <div className="Products">
         <div className="products-container">
-          <h2 className="products-title">Florals</h2>
-          <div className="floral-container">
+          <h2
+            className={`products-title slide-in-left ${
+              floralsVisible ? "visible" : ""
+            }`}
+          >
+            Florals
+          </h2>
+          <div
+            className={`floral-container slide-in-left ${
+              floralsVisible ? "visible" : ""
+            }`}
+          >
             <div className="card">
               <div className="card-container">
                 <div className="card-img-container">
@@ -248,7 +286,7 @@ function App() {
                   <img
                     src={img6Array[imgValue6]}
                     className="card-img"
-                    alt="bouncy house"
+                    alt="florals"
                   ></img>
                   <div className="overlay"></div>
                   <button
@@ -307,8 +345,18 @@ function App() {
               </div>
             </div>
           </div>
-          <h2 className="products-title">Bouncy Houses</h2>
-          <div className="bouncy-container">
+          <h2
+            className={`products-title slide-in-left ${
+              bouncyVisible ? "visible" : ""
+            }`}
+          >
+            Bouncy Houses
+          </h2>
+          <div
+            className={`bouncy-container slide-in-left ${
+              bouncyVisible ? "visible" : ""
+            }`}
+          >
             <div className="bouncy-house-container-half">
               <div className="card">
                 <div className="card-container">
@@ -471,8 +519,18 @@ function App() {
               </div>
             </div>
           </div>
-          <h2 className="products-title">Piñatas</h2>
-          <div className="pinatas-container">
+          <h2
+            className={`products-title slide-in-left ${
+              pinaVisible ? "visible" : ""
+            }`}
+          >
+            Piñatas
+          </h2>
+          <div
+            className={`pinatas-container slide-in-left ${
+              pinaVisible ? "visible" : ""
+            }`}
+          >
             <div className="card">
               <div className="card-container">
                 <div className="card-img-container">
@@ -536,11 +594,11 @@ function App() {
         <form className="contact-form" ref={formRef} onSubmit={sendEmail}>
           <div className="input-container">
             <label htmlFor="name">Name</label>
-            <input type="text" id="name" placeholder="value" required></input>
+            <input type="text" id="name" placeholder="name" required></input>
           </div>
           <div className="input-container">
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" placeholder="value" required></input>
+            <input type="email" id="email" placeholder="email" required></input>
           </div>
           <div className="input-container">
             <label htmlFor="inquiry">Product Inquiry</label>
@@ -548,7 +606,7 @@ function App() {
               className="inquiry-input"
               type="text"
               id="inquiry"
-              placeholder="value"
+              placeholder="inquiry"
               required
             ></textarea>
           </div>
