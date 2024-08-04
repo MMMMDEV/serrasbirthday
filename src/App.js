@@ -592,37 +592,34 @@ function App() {
       <div className="Contact-us" id="contact">
         <h4 className="contact-us-title">Contact Us</h4>
         <form className="contact-form" ref={formRef} onSubmit={sendEmail}>
-          <div className="input-container">
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              id="name"
-              placeholder="name"
-              name="name"
-              required
-            ></input>
-          </div>
-          <div className="input-container">
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              placeholder="email"
-              name="email"
-              required
-            ></input>
-          </div>
-          <div className="input-container">
-            <label htmlFor="inquiry">Product Inquiry</label>
-            <textarea
-              className="inquiry-input"
-              type="text"
-              id="inquiry"
-              placeholder="inquiry"
-              name="inquiry"
-              required
-            ></textarea>
-          </div>
+          <label htmlFor="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="name"
+            name="name"
+            required
+          ></input>
+
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="email"
+            name="email"
+            required
+          ></input>
+
+          <label htmlFor="inquiry">Product Inquiry</label>
+          <textarea
+            className="inquiry-input"
+            type="text"
+            id="inquiry"
+            placeholder="inquiry"
+            name="inquiry"
+            required
+          ></textarea>
+
           <button type="submit" className="submit-btn">
             Submit
           </button>
