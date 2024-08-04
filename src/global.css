@@ -170,10 +170,6 @@ body {
   transition: 0.5s;
 }
 
-.card:hover {
-  scale: 1.1;
-}
-
 .card-container {
   width: 100%;
   position: relative;
@@ -195,7 +191,7 @@ body {
 }
 
 .card-img {
-  width: 17rem;
+  width: 16rem;
   height: 100%;
   object-fit: cover;
   border: 0px solid transparent;
@@ -203,7 +199,7 @@ body {
 }
 
 .overlay {
-  width: 17rem;
+  width: 16rem;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.123);
   position: absolute;
@@ -212,7 +208,7 @@ body {
 }
 
 .card-title {
-  width: 17rem;
+  width: 16rem;
   color: rgb(0, 0, 0);
   font-family: "Inter", sans-serif;
   font-size: 1.1rem;
@@ -221,7 +217,7 @@ body {
 }
 
 .card-description {
-  width: 17rem;
+  width: 16rem;
   margin: 0rem 0rem 0.6rem 0rem;
   line-height: 1.6rem;
   font-weight: 400;
@@ -474,6 +470,10 @@ body {
     gap: 1rem;
   }
 
+  .card:hover {
+    scale: 1.1;
+  }
+
   .card-img-container {
     height: 30rem;
     position: relative;
@@ -567,6 +567,10 @@ body {
 
   .products-container {
     gap: 4rem;
+  }
+
+  .card:hover {
+    scale: 1.1;
   }
 }
 
