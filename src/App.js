@@ -365,9 +365,7 @@ function App() {
             I’m Kellen Serra, rooted in Nashville with a passion for festive
             creativity. Inspired by my mother’s handmade piñatas and a trip to
             Mexico, I founded Serra's Birthdays to infuse our events with
-            vibrant, Mexican-inspired joy. We offer everything from balloon
-            arches to bouncy houses, bringing cultural richness to every
-            occasion. Thanks for considering us!
+            vibrant, Mexican-inspired joy.
           </p>
         </div>
         <button className="contact-btn" onClick={scrollToContact}>
