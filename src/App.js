@@ -715,6 +715,7 @@ function App() {
             placeholder="name"
             name="name"
             value={formData.name}
+            onChange={handleChange}
             required
           ></input>
 
@@ -725,6 +726,7 @@ function App() {
             placeholder="email"
             name="email"
             value={formData.email}
+            onChange={handleChange}
             required
           ></input>
 
@@ -736,6 +738,7 @@ function App() {
             placeholder="inquiry"
             name="inquiry"
             value={formData.inquiry}
+            onChange={handleChange}
             required
           ></textarea>
 
