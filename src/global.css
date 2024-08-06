@@ -237,6 +237,28 @@ body {
   border-radius: 0.2rem;
 }
 
+.dots-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  position: absolute;
+  bottom: 0.5rem;
+}
+
+.dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border: 0px solid transparent;
+  border-radius: 10rem;
+  background-color: rgb(128, 128, 128);
+  transition: 0.5s;
+}
+
+.dot-visible {
+  background-color: rgb(255, 255, 255);
+}
+
 .overlay {
   width: 16rem;
   height: 100%;

@@ -402,6 +402,20 @@ function App() {
                       alt="arrow back"
                     ></img>
                   </button>
+                  <div className="dots-container">
+                    <div
+                      className={imgValue6 === 0 ? "dot-visible dot" : "dot"}
+                    ></div>
+                    <div
+                      className={imgValue6 === 1 ? "dot-visible dot" : "dot"}
+                    ></div>
+                    <div
+                      className={imgValue6 === 2 ? "dot-visible dot" : "dot"}
+                    ></div>
+                    <div
+                      className={imgValue6 === 3 ? "dot-visible dot" : "dot"}
+                    ></div>
+                  </div>
                   <img
                     src={img6Array[imgValue6]}
                     className="card-img"
@@ -434,6 +448,14 @@ function App() {
                 onTouchEnd={(e) => handleTouchEnd(e, 7)}
               >
                 <div className="card-img-container">
+                  <div className="dots-container">
+                    <div
+                      className={imgValue7 === 0 ? "dot-visible dot" : "dot"}
+                    ></div>
+                    <div
+                      className={imgValue7 === 1 ? "dot-visible dot" : "dot"}
+                    ></div>
+                  </div>
                   <button className="btn-change-img" onClick={backImgArray7}>
                     <img
                       className="arrow-icon left-arrow"
@@ -488,6 +510,17 @@ function App() {
                   onTouchEnd={(e) => handleTouchEnd(e, 1)}
                 >
                   <div className="card-img-container">
+                    <div className="dots-container">
+                      <div
+                        className={imgValue1 === 0 ? "dot-visible dot" : "dot"}
+                      ></div>
+                      <div
+                        className={imgValue1 === 1 ? "dot-visible dot" : "dot"}
+                      ></div>
+                      <div
+                        className={imgValue1 === 2 ? "dot-visible dot" : "dot"}
+                      ></div>
+                    </div>
                     <button className="btn-change-img" onClick={backImgArray1}>
                       <img
                         className="arrow-icon left-arrow"
@@ -532,6 +565,14 @@ function App() {
                   onTouchEnd={(e) => handleTouchEnd(e, 2)}
                 >
                   <div className="card-img-container">
+                    <div className="dots-container">
+                      <div
+                        className={imgValue2 === 0 ? "dot-visible dot" : "dot"}
+                      ></div>
+                      <div
+                        className={imgValue2 === 1 ? "dot-visible dot" : "dot"}
+                      ></div>
+                    </div>
                     <button className="btn-change-img" onClick={backImgArray2}>
                       <img
                         className="arrow-icon left-arrow"
@@ -578,6 +619,14 @@ function App() {
                   onTouchEnd={(e) => handleTouchEnd(e, 3)}
                 >
                   <div className="card-img-container">
+                    <div className="dots-container">
+                      <div
+                        className={imgValue3 === 0 ? "dot-visible dot" : "dot"}
+                      ></div>
+                      <div
+                        className={imgValue3 === 1 ? "dot-visible dot" : "dot"}
+                      ></div>
+                    </div>
                     <button className="btn-change-img" onClick={backImgArray3}>
                       <img
                         className="arrow-icon left-arrow"
@@ -620,6 +669,17 @@ function App() {
                   onTouchEnd={(e) => handleTouchEnd(e, 4)}
                 >
                   <div className="card-img-container">
+                    <div className="dots-container">
+                      <div
+                        className={imgValue4 === 0 ? "dot-visible dot" : "dot"}
+                      ></div>
+                      <div
+                        className={imgValue4 === 1 ? "dot-visible dot" : "dot"}
+                      ></div>
+                      <div
+                        className={imgValue4 === 2 ? "dot-visible dot" : "dot"}
+                      ></div>
+                    </div>
                     <button className="btn-change-img" onClick={backImgArray4}>
                       <img
                         className="arrow-icon left-arrow"
@@ -679,6 +739,14 @@ function App() {
                 onTouchEnd={(e) => handleTouchEnd(e, 5)}
               >
                 <div className="card-img-container">
+                  <div className="dots-container">
+                    <div
+                      className={imgValue5 === 0 ? "dot-visible dot" : "dot"}
+                    ></div>
+                    <div
+                      className={imgValue5 === 1 ? "dot-visible dot" : "dot"}
+                    ></div>
+                  </div>
                   <button className="btn-change-img" onClick={backImgArray5}>
                     <img
                       className="arrow-icon left-arrow"
