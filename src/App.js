@@ -24,13 +24,11 @@ import flor4 from "./products/flor-4.jpg";
 import ramo1 from "./products/ramo-1.jpg";
 import ramo2 from "./products/ramo-2.jpg";
 import arrowFoward from "./images/arrow-forward.svg";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import emailjs from "emailjs-com";
 
 function App() {
   const [touchStart, setTouchStart] = useState(0);
-
-  const formRef = useRef();
 
   const [formData, setFormData] = useState({
     name: "",
