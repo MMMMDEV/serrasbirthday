@@ -23,6 +23,7 @@ import flor3 from "./products/flor-3.jpg";
 import flor4 from "./products/flor-4.jpg";
 import ramo1 from "./products/ramo-1.jpg";
 import ramo2 from "./products/ramo-2.jpg";
+import tIcon from "./images/treat.jpg";
 import arrowFoward from "./images/arrow-forward.svg";
 import React, { useState, useEffect } from "react";
 import emailjs from "emailjs-com";
@@ -358,24 +359,31 @@ function App() {
           <h4 className="about-us-title">Company Goal</h4>
           <p className="about-us-paragraph">
             Serra's Birthdays, a family-owned business since 2022, turns every
-            event into a celebration with our range of services, from bouncy
-            houses to floral arrangements.
+            event into a celebration with our range of services.
           </p>
           <p className="about-us-paragraph">
             I’m Kellen Serra, rooted in Nashville with a passion for festive
             creativity. Inspired by my mother’s handmade piñatas and a trip to
             Mexico, I founded Serra's Birthdays to infuse our events with
-            vibrant, Mexican-inspired joy.
+            vibrant, Mexican-inspired joy. We offer everything from balloon
+            arches to bouncy houses, bringing cultural richness to every
+            occasion. Thanks for considering us!"
           </p>
         </div>
         <button className="contact-btn" onClick={scrollToContact}>
           Contact Us Now
         </button>
       </div>
+      <ul className="stripe">
+        <li>Florals</li>
+        <li>Bouncy Houses</li>
+        <li>Berries and Treats</li>
+        <li>Piñatas</li>
+      </ul>
       <div className="Products">
         <div className="products-container">
           <h2
-            className={`products-title slide-in-left ${
+            className={`products-title slide-in-left pt1 ${
               floralsVisible ? "visible" : ""
             }`}
           >
@@ -776,6 +784,27 @@ function App() {
                   meticulously handcrafted to perfection.
                 </p>
               </div>
+            </div>
+          </div>
+          <h2 className="products-title">Berries and Treats</h2>
+          <div className="card">
+            <div
+              className="card-container"
+              onTouchStart={handleTouchStart}
+              onTouchEnd={(e) => handleTouchEnd(e, 5)}
+            >
+              <div className="card-img-container">
+                <img src={tIcon} className="card-img" alt="bouncy house"></img>
+                <div className="overlay"></div>
+              </div>
+              <p className="card-description">
+                Treats and custom chocolate covered stawberries for any event
+                and occasion
+              </p>
+              <br></br>
+              <p className="card-description">
+                Order Here: instagram @Berriesbymiaa
+              </p>
             </div>
           </div>
         </div>
