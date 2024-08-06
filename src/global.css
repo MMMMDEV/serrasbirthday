@@ -600,11 +600,6 @@ body {
   opacity: 1;
 }
 
-/* Existing styles here */
-.product-section-heading {
-  /* Keep your existing styles */
-}
-
 /* New styles for sliding and fading in */
 .slide-in-left {
   opacity: 0; /* Start hidden */

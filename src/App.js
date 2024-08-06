@@ -63,9 +63,19 @@ function App() {
       .then(
         (response) => {
           console.log("SUCCESS!", response.status, response.text);
+          setFormData({
+            name: "",
+            email: "",
+            inquiry: "",
+          });
         },
         (error) => {
           console.log("FAILED...", error);
+          setFormData({
+            name: "",
+            email: "",
+            inquiry: "",
+          });
         }
       );
   };
@@ -312,6 +322,7 @@ function App() {
     imgValue6,
     imgValue7,
     touchStart,
+    formData,
   ]);
 
   useEffect(() => {
