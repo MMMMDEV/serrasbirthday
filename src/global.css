@@ -123,8 +123,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem 0rem 3rem 0rem;
-  margin: 0rem;
+  padding: 1rem;
+  margin-bottom: 3rem;
+  margin-top: 0rem;
+  background-color: #fae3e6;
 }
 
 .stripe > li {
@@ -640,10 +642,6 @@ body {
 
   .products-container {
     gap: 4rem;
-  }
-
-  .card:hover {
-    scale: 1.1;
   }
 }
 
