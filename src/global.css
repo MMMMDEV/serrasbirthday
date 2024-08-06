@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lavishly+Yours&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Allison&family=Allura&family=Caveat+Brush&display=swap");
 
 /* Global Components */
 
@@ -30,8 +31,8 @@
   justify-content: center;
   align-items: center;
   padding: 0.8rem;
-  background-color: black;
-  color: white;
+  background-color: #000000;
+  color: rgb(255, 255, 255);
   font-size: 14;
   font-family: "Lato", sans-serif;
   font-weight: 500;
@@ -40,6 +41,12 @@
   border-radius: 0.5rem;
   z-index: 2;
   cursor: pointer;
+  transition: 0.5s;
+}
+
+.submit-btn:hover {
+  box-shadow: -6px 6px 4px #ffcbd2;
+  transform: translateX(3px) translateY(-3px);
 }
 
 /* Global Components */
@@ -52,6 +59,7 @@ html {
 body {
   width: 100%;
   margin: 0;
+  background-color: #ffcbd2;
 }
 
 .header {
@@ -62,10 +70,11 @@ body {
   align-items: center;
   position: relative;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.329);
+  background-color: white;
 }
 
 .header-title {
-  font-family: "Lavishly Yours", cursive;
+  font-family: "Allison", cursive;
   font-weight: 400;
   font-style: normal;
   font-size: 1.8rem;
@@ -82,8 +91,8 @@ body {
 /* Hero */
 
 .Hero {
-  height: calc(100vh - 3.5rem);
-  padding: 0rem 2rem;
+  height: 100%;
+  padding: 3rem 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -92,19 +101,49 @@ body {
   position: relative;
 }
 
-.hero-vector {
-  width: 20rem;
-  height: 20rem;
+.back-img {
+  width: 100%;
   position: absolute;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
 }
 
-.hero-title {
-  width: 16ch;
-  font-family: "Ibarra Real Nova", serif;
-  font-weight: 400;
-  font-size: 1.6rem;
-  text-align: center;
+.hero-overlay {
+  width: 100%;
+  height: 100%;
   z-index: 2;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.205);
+}
+
+/* About-us */
+.About-us {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0rem 2rem;
+  gap: 1.5rem;
+  font-family: "Ibarra Real Nova", serif;
+  margin-bottom: 2rem;
+  color: #ffffff;
+  z-index: 3;
+}
+
+.about-us-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0.6rem 0rem;
+  text-align: center;
+  font-family: "Allura", cursive;
+}
+
+.about-us-paragraph {
+  width: 30ch;
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+  text-align: center;
 }
 
 /* Products */
@@ -115,7 +154,7 @@ body {
   justify-content: center;
   flex-direction: column;
   gap: 1rem;
-  margin-bottom: 3rem;
+  background-color: white;
 }
 
 .products-title {
@@ -130,6 +169,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 5rem 0rem;
   gap: 1rem;
 }
 
@@ -234,9 +274,10 @@ body {
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
-  cursor: pointer;
   z-index: 2;
   transition: 0.5s;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .btn-change-img:hover {
@@ -252,30 +293,6 @@ body {
   rotate: 180deg;
 }
 
-/* About-us */
-.About-us {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 0rem 2rem;
-  gap: 1.5rem;
-  font-family: "Ibarra Real Nova", serif;
-  margin-bottom: 2rem;
-}
-
-.about-us-title {
-  font-size: 1.5rem;
-  font-weight: 500;
-  margin: 0.6rem 0rem;
-}
-
-.about-us-paragraph {
-  width: 30ch;
-  font-size: 1.1rem;
-  line-height: 1.5rem;
-}
-
 /* Contact-us */
 .Contact-us {
   display: flex;
@@ -283,7 +300,7 @@ body {
   align-items: center;
   flex-direction: column;
   gap: 1.5rem;
-  margin-bottom: 5rem;
+  padding: 5rem 0rem;
 }
 
 .contact-us-title {
@@ -303,6 +320,7 @@ body {
   border-radius: 0.3rem;
   padding: 2rem 2rem;
   gap: 1.3rem;
+  background-color: white;
 }
 
 .contact-form > label {
@@ -419,10 +437,7 @@ body {
   }
 
   .header-title {
-    font-family: "Lavishly Yours", cursive;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   /* Hero */
@@ -443,13 +458,8 @@ body {
     position: absolute;
   }
 
-  .hero-title {
-    width: 16ch;
-    font-family: "Ibarra Real Nova", serif;
-    font-weight: 400;
-    font-size: 1.7rem;
-    text-align: center;
-    z-index: 2;
+  .about-us-title {
+    font-size: 2.8rem;
   }
 
   /* cards */
@@ -487,7 +497,7 @@ body {
   .overlay {
     width: 20rem;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.123);
+    background-color: rgba(0, 0, 0, 0.226);
     position: absolute;
     border: 0px solid transparent;
     border-radius: 0.2rem;
@@ -508,6 +518,12 @@ body {
     line-height: 1.6rem;
     font-weight: 400;
     font-size: 1rem;
+  }
+
+  .btn-change-img {
+    opacity: 1;
+    pointer-events: all;
+    cursor: pointer;
   }
 
   /* about us */
@@ -543,6 +559,12 @@ body {
 }
 
 @media screen and (width > 1200px) {
+  .btn-change-img {
+    opacity: 1;
+    pointer-events: all;
+    cursor: pointer;
+  }
+
   .floral-container {
     flex-direction: row;
     align-items: flex-start;

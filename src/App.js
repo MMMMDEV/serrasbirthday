@@ -1,6 +1,6 @@
 import "./global.css";
 
-import vector from "./images/Vector.png";
+import backImg from "./images/back.jpg";
 import emailIcon from "./images/email.png";
 import facebookIcon from "./images/facebook.png";
 import instagramIcon from "./images/instagram.png";
@@ -28,27 +28,46 @@ import React, { useState, useEffect, useRef } from "react";
 import emailjs from "emailjs-com";
 
 function App() {
+  const [touchStart, setTouchStart] = useState(0);
+
   const formRef = useRef();
 
-  const sendEmail = (e) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    inquiry: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
 
+    const templateParams = {
+      name: formData.name,
+      email: formData.email,
+      inquiry: formData.inquiry,
+    };
+
     emailjs
-      .sendForm(
+      .send(
         "service_2rnus3a",
         "template_rz2gy7q",
-        formRef.current,
+        templateParams,
         "8vDJIvwDwrs11aGxx"
       )
       .then(
-        (result) => {
-          console.log(result.text);
-          alert("Message sent successfully!");
-          formRef.current.reset(); // Clear the form after sending
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
         },
         (error) => {
-          console.log(error.text);
-          alert("Failed to send the message, please try again.");
+          console.log("FAILED...", error);
         }
       );
   };
@@ -82,13 +101,13 @@ function App() {
     }
   };
 
-  const img1Array = [shark1, shark2, shark3];
+  const img1Array = [shark2, shark1, shark3];
   const img2Array = [water1, water2];
   const img3Array = [spider1, spider2];
   const img4Array = [princess1, princess2, princess3];
   const img5Array = [pinatas1, pinatas2];
   const img6Array = [flor1, flor2, flor3, flor4];
-  const img7Array = [ramo2, ramo1];
+  const img7Array = [ramo1, ramo2];
 
   const [imgValue1, setImgValue1] = useState(0);
   const [imgValue2, setImgValue2] = useState(0);
@@ -216,6 +235,76 @@ function App() {
   const [bouncyVisible, setBouncyVisible] = useState(false);
   const [pinaVisible, setPinaVisible] = useState(false);
 
+  const handleTouchStart = (e) => {
+    const touch = e.touches[0];
+    setTouchStart(touch.clientX);
+  };
+
+  const handleTouchEnd = (e, cardIndex) => {
+    const touch = e.changedTouches[0];
+    const diffX = touchStart - touch.clientX;
+
+    if (Math.abs(diffX) > 50) {
+      if (diffX > 0) {
+        // Swiped left
+        console.log("Swipe Left");
+        switch (cardIndex) {
+          case 1:
+            imgFowardArray1();
+            break;
+          case 2:
+            imgFowardArray2();
+            break;
+          case 3:
+            imgFowardArray3();
+            break;
+          case 4:
+            imgFowardArray4();
+            break;
+          case 5:
+            imgFowardArray5();
+            break;
+          case 6:
+            imgFowardArray6();
+            break;
+          case 7:
+            imgFowardArray7();
+            break;
+          default:
+            break;
+        }
+      } else {
+        // Swiped right
+        console.log("Swipe Right");
+        switch (cardIndex) {
+          case 1:
+            backImgArray1();
+            break;
+          case 2:
+            backImgArray2();
+            break;
+          case 3:
+            backImgArray3();
+            break;
+          case 4:
+            backImgArray4();
+            break;
+          case 5:
+            backImgArray5();
+            break;
+          case 6:
+            backImgArray6();
+            break;
+          case 7:
+            backImgArray7();
+            break;
+          default:
+            break;
+        }
+      }
+    }
+  };
+
   useEffect(() => {}, [
     imgValue1,
     imgValue2,
@@ -224,6 +313,7 @@ function App() {
     imgValue5,
     imgValue6,
     imgValue7,
+    touchStart,
   ]);
 
   useEffect(() => {
@@ -253,8 +343,24 @@ function App() {
         <h1 className="header-title">Serra's Birthdays</h1>
       </div>
       <div className={`Hero ${heroVisible ? "visible" : ""}`}>
-        <img src={vector} className="hero-vector" alt="vector"></img>
-        <h2 className="hero-title">We bring your vision to life</h2>
+        <img src={backImg} alt="flowers" className="back-img"></img>
+        <div className="hero-overlay"></div>
+        <div className="About-us">
+          <h4 className="about-us-title">Company Goal</h4>
+          <p className="about-us-paragraph">
+            Serra's Birthdays, a family-owned business since 2022, turns every
+            event into a celebration with our range of services, from bouncy
+            houses to floral arrangements.
+          </p>
+          <p className="about-us-paragraph">
+            I’m Kellen Serra, rooted in Nashville with a passion for festive
+            creativity. Inspired by my mother’s handmade piñatas and a trip to
+            Mexico, I founded Serra's Birthdays to infuse our events with
+            vibrant, Mexican-inspired joy. We offer everything from balloon
+            arches to bouncy houses, bringing cultural richness to every
+            occasion. Thanks for considering us!
+          </p>
+        </div>
         <button className="contact-btn" onClick={scrollToContact}>
           Contact Us Now
         </button>
@@ -274,7 +380,11 @@ function App() {
             }`}
           >
             <div className="card">
-              <div className="card-container">
+              <div
+                className="card-container"
+                onTouchStart={handleTouchStart}
+                onTouchEnd={(e) => handleTouchEnd(e, 6)}
+              >
                 <div className="card-img-container">
                   <button className="btn-change-img" onClick={backImgArray6}>
                     <img
@@ -309,7 +419,11 @@ function App() {
               </div>
             </div>
             <div className="card">
-              <div className="card-container">
+              <div
+                className="card-container"
+                onTouchStart={handleTouchStart}
+                onTouchEnd={(e) => handleTouchEnd(e, 7)}
+              >
                 <div className="card-img-container">
                   <button className="btn-change-img" onClick={backImgArray7}>
                     <img
@@ -359,7 +473,11 @@ function App() {
           >
             <div className="bouncy-house-container-half">
               <div className="card">
-                <div className="card-container">
+                <div
+                  className="card-container"
+                  onTouchStart={handleTouchStart}
+                  onTouchEnd={(e) => handleTouchEnd(e, 1)}
+                >
                   <div className="card-img-container">
                     <button className="btn-change-img" onClick={backImgArray1}>
                       <img
@@ -392,14 +510,18 @@ function App() {
                     graphics, and a wide water slide fitting up to 2 people at a
                     time but that is not all a 9x10 pool fitting up to 10 people
                     <br></br>
-                    <br></br>8 hours: $200 <br></br>
+                    <br></br>8 hours: $300 <br></br>
                     24 hours: $375<br></br>
                     Size: 18x32
                   </p>
                 </div>
               </div>
               <div className="card">
-                <div className="card-container">
+                <div
+                  className="card-container"
+                  onTouchStart={handleTouchStart}
+                  onTouchEnd={(e) => handleTouchEnd(e, 2)}
+                >
                   <div className="card-img-container">
                     <button className="btn-change-img" onClick={backImgArray2}>
                       <img
@@ -441,7 +563,11 @@ function App() {
             </div>
             <div className="bouncy-house-container-half">
               <div className="card">
-                <div className="card-container">
+                <div
+                  className="card-container"
+                  onTouchStart={handleTouchStart}
+                  onTouchEnd={(e) => handleTouchEnd(e, 3)}
+                >
                   <div className="card-img-container">
                     <button className="btn-change-img" onClick={backImgArray3}>
                       <img
@@ -472,14 +598,18 @@ function App() {
                   <p className="card-description">
                     This is a bouncy house that your kids will absolutely love.
                     <br></br>
-                    <br></br>6 hours: $150<br></br>8 hours: $180<br></br>
-                    24 hours: $200<br></br>
+                    <br></br>6 hours: $150<br></br>8 hours: $190<br></br>
+                    24 hours: $220<br></br>
                     Size: 18x13
                   </p>
                 </div>
               </div>
               <div className="card">
-                <div className="card-container">
+                <div
+                  className="card-container"
+                  onTouchStart={handleTouchStart}
+                  onTouchEnd={(e) => handleTouchEnd(e, 4)}
+                >
                   <div className="card-img-container">
                     <button className="btn-change-img" onClick={backImgArray4}>
                       <img
@@ -512,7 +642,9 @@ function App() {
                     with Serra's birthdays can you book this creative and
                     artistic unit.
                     <br></br>
-                    <br></br>
+                    <br></br>4 hours: $80 <br></br>6 hours: $100<br></br>8
+                    hours: $120<br></br>
+                    24 hours: $140<br></br>
                     Size: 14x14
                   </p>
                 </div>
@@ -532,7 +664,11 @@ function App() {
             }`}
           >
             <div className="card">
-              <div className="card-container">
+              <div
+                className="card-container"
+                onTouchStart={handleTouchStart}
+                onTouchEnd={(e) => handleTouchEnd(e, 5)}
+              >
                 <div className="card-img-container">
                   <button className="btn-change-img" onClick={backImgArray5}>
                     <img
@@ -569,35 +705,16 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="About-us">
-        <h4 className="about-us-title">Company Goal</h4>
-        <p className="about-us-paragraph">
-          Serra&#8217;s Birthdays, a family-owned business since 2022,
-          specializes in making every event feel extraordinary. From bouncy
-          houses to floral arrangements, we bring your vision to life with joy,
-          celebration, and excitement.
-        </p>
-        <p className="about-us-paragraph">
-          Kellen Serra: With deep roots in Nashville and a lifelong passion for
-          celebrations, I've been immersed in this field for many years. Raised
-          by a mother who supported our family by crafting handmade piñatas, I
-          inherited her love for creativity and party decor. Inspired by a
-          transformative trip to Mexico, I founded 'Serra&#8217;s Birthdays' to
-          bring the vibrant essence of Mexican celebrations to Nashville. We
-          offer a range of creative services, from balloon arches to bouncy
-          houses, ensuring every event reflects the joy and richness of our
-          culture. Thank you for considering us for your special occasions.
-        </p>
-      </div>
       <div className="Contact-us" id="contact">
         <h4 className="contact-us-title">Contact Us</h4>
-        <form className="contact-form" ref={formRef} onSubmit={sendEmail}>
+        <form className="contact-form" onSubmit={handleSubmit}>
           <label htmlFor="name">Name</label>
           <input
             type="text"
             id="name"
             placeholder="name"
             name="name"
+            value={formData.name}
             required
           ></input>
 
@@ -607,6 +724,7 @@ function App() {
             id="email"
             placeholder="email"
             name="email"
+            value={formData.email}
             required
           ></input>
 
@@ -617,6 +735,7 @@ function App() {
             id="inquiry"
             placeholder="inquiry"
             name="inquiry"
+            value={formData.inquiry}
             required
           ></textarea>
 
